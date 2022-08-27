@@ -1,0 +1,9 @@
+.img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.li {
+    display: flex;
+    flex-direction: column;
+}
