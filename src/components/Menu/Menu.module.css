@@ -1,0 +1,18 @@
+.ul {
+    display: flex;
+    border-bottom: 2mm ridge rgba(129, 129, 125, 0.6);
+}
+.li {
+    list-style-type: none;
+    margin-bottom: 16px;
+
+}
+.li:not(:last-child) {
+    margin-right: 10px;
+}
+.link {
+    text-decoration: none;
+}
+.active {
+    color: red;
+}
