@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/xwinkX.github.io/goit-react-hw-05-movies/static/css/main.7acaea2f.css",
-    "main.js": "/xwinkX.github.io/goit-react-hw-05-movies/static/js/main.e047d750.js",
+    "main.js": "/xwinkX.github.io/goit-react-hw-05-movies/static/js/main.84cc6e47.js",
     "static/css/842.3d899fa1.chunk.css": "/xwinkX.github.io/goit-react-hw-05-movies/static/css/842.3d899fa1.chunk.css",
     "static/js/842.615f1bc9.chunk.js": "/xwinkX.github.io/goit-react-hw-05-movies/static/js/842.615f1bc9.chunk.js",
     "static/js/839.0be77889.chunk.js": "/xwinkX.github.io/goit-react-hw-05-movies/static/js/839.0be77889.chunk.js",
@@ -16,7 +16,7 @@
     "static/js/774.559ab0ac.chunk.js": "/xwinkX.github.io/goit-react-hw-05-movies/static/js/774.559ab0ac.chunk.js",
     "index.html": "/xwinkX.github.io/goit-react-hw-05-movies/index.html",
     "main.7acaea2f.css.map": "/xwinkX.github.io/goit-react-hw-05-movies/static/css/main.7acaea2f.css.map",
-    "main.e047d750.js.map": "/xwinkX.github.io/goit-react-hw-05-movies/static/js/main.e047d750.js.map",
+    "main.84cc6e47.js.map": "/xwinkX.github.io/goit-react-hw-05-movies/static/js/main.84cc6e47.js.map",
     "842.3d899fa1.chunk.css.map": "/xwinkX.github.io/goit-react-hw-05-movies/static/css/842.3d899fa1.chunk.css.map",
     "842.615f1bc9.chunk.js.map": "/xwinkX.github.io/goit-react-hw-05-movies/static/js/842.615f1bc9.chunk.js.map",
     "839.0be77889.chunk.js.map": "/xwinkX.github.io/goit-react-hw-05-movies/static/js/839.0be77889.chunk.js.map",
@@ -31,6 +31,6 @@
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.e047d750.js"
+    "static/js/main.84cc6e47.js"
   ]
 }
