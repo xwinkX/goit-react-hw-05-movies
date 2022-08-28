@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getSingleMovies } from "api/api";
 import css from "./MovieDetailsPage.module.css"
@@ -8,7 +8,9 @@ const MovieDetailsPage = () => {
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  
+  const navigate = useNavigate(); 
+
+  const goBack = () => navigate(-1);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -29,7 +31,8 @@ const MovieDetailsPage = () => {
   const genre = genres?.map(el => el.name).join(' ');
   return (
     <>
-    <div className={css.div}>
+     <button onClick={goBack}>Go Back</button>
+      <div className={css.div}>
       {loading && <p>...loading</p>}
       <img className={css.img} src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt="www" />
       <div>

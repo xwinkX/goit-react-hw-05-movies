@@ -31,3 +31,9 @@ export const getReviews = async id => {
 
   return data;
 };
+export const getSearch = async query => {
+  const { data } = await instance.get(`/search/movie`, {
+    params: { query },
+  });
+  return data;
+};
