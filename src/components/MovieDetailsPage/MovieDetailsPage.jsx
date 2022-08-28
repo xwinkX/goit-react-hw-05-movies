@@ -45,7 +45,7 @@ const MovieDetailsPage = () => {
       </div>
       {error && <p>...load failed</p>}
     </div>
-     <div>
+     <div className={css.div_add}>
         <p>Additional information</p>
         <ul>
           <li>
