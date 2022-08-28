@@ -6,7 +6,7 @@ import css from "./Reviews.module.css"
 
 const Review = () => {
     const { movieId } = useParams();
-    const [item, setItem] = useState([]);
+    const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
   
@@ -17,7 +17,7 @@ const Review = () => {
             try {
                 setLoading(true);
                 const {results} = await getReviews(movieId);
-                setItem(results);
+                setItems(results);
             } catch (error) {
                 setError(error);
             } finally {
@@ -27,7 +27,7 @@ const Review = () => {
         fetchMovies();
     }, [movieId])
       
-        const data = item.map(({ author, content, id }) =>
+        const data = items.map(({ author, content, id }) =>
             <li className={css.li} key={id}>
                <p> {author}</p>
                 <p> {content}</p>

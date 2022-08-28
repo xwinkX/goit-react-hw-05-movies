@@ -1,23 +1,25 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useParams, Link, useNavigate, Outlet, useLocation } from "react-router-dom";
+import { useState, useEffect, } from "react";
 import { getSingleMovies } from "api/api";
-import css from "./MovieDetailsPage.module.css"
+import css from "./MovieDetails.module.css"
 
 const MovieDetailsPage = () => {
   const {movieId} = useParams();
-  const [item, setItem] = useState({});
+  const [items, setItems] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate(); 
+  const location = useLocation();
+  const from = location.state?.from || "/movies";
 
-  const goBack = () => navigate(-1);
+  const goBack = () => navigate(from);
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
         setLoading(true);
         const results = await getSingleMovies(movieId);
-        setItem(results);
+        setItems(results);
       } catch (error) {
         setError(error);
       } finally {
@@ -27,7 +29,7 @@ const MovieDetailsPage = () => {
     fetchMovies();
        }, [movieId])
 
-  const { poster_path, genres, title, overview, vote_average } = item;
+  const { poster_path, genres, title, overview, vote_average } = items;
   const genre = genres?.map(el => el.name).join(' ');
   return (
     <>
@@ -49,13 +51,14 @@ const MovieDetailsPage = () => {
         <p>Additional information</p>
         <ul>
           <li>
-            <Link to={`cast`}>Cast</Link>
+            <Link state={{from}} to={`cast`}>Cast</Link>
           </li>
           <li>
-            <Link to={`reviews`}>Reviews</Link>
+            <Link state={{from}} to={`reviews`}>Reviews</Link>
           </li>
         </ul>
       </div>
+      <Outlet/>
       </>
   )
 } 

@@ -1,21 +1,25 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { getSearch} from "api/api";
 import MoviesList from "components/MoviesList/MoviesList";
 
 const Movies = () => {
     const [search, setSearch] = useState('');
-    const [query, setQuery] = useState('');
+    // const [query, setQuery] = useState('');
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
   
+    const [searchParams, setSearchParams] = useSearchParams();
+    const searchMovies = searchParams.get("query");
+    
 
     useEffect(() => {
   
         const fetchMovies = async () => {
             try {
                 setLoading(true);
-                const { results } = await getSearch(query);
+                const { results } = await getSearch(searchMovies);
                 setItems(results);
             } catch (error) {
                 setError(error);
@@ -23,10 +27,10 @@ const Movies = () => {
                 setLoading(false);
             }
         };
-        if (query) {
+        if (searchMovies) {
             fetchMovies();
         }
-    }, [query])
+    }, [searchMovies])
     
     const handleChange = (e) => {
         const {  value } = e.target;
@@ -34,7 +38,7 @@ const Movies = () => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        setQuery( search );
+        setSearchParams( {query: search} );
         setSearch("")
     };
     return (

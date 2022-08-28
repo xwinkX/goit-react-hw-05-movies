@@ -6,7 +6,7 @@ import css from "./Cast.module.css"
 
 const Cast = () => {
     const { movieId } = useParams();
-    const [item, setItem] = useState([]);
+    const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
   
@@ -17,7 +17,7 @@ const Cast = () => {
             try {
                 setLoading(true);
                 const {cast} = await getCast(movieId);
-                setItem(cast);
+                setItems(cast);
             } catch (error) {
                 setError(error);
             } finally {
@@ -27,7 +27,7 @@ const Cast = () => {
         fetchMovies();
     }, [movieId])
       
-    const data = item.map(({ id, profile_path, character, name }) =>
+    const data = items.map(({ id, profile_path, character, name }) =>
             <li className={css.li} key={id}>
                 <img className={css.img} src={`https://image.tmdb.org/t/p/w500${profile_path}`} alt={name} />
                 {name}
