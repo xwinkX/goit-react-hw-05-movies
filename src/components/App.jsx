@@ -1,8 +1,9 @@
 
 import { Routes, Route } from "react-router-dom";
-import { lazy, Suspense} from "react";
+import { lazy, Suspense } from "react";
+import Menu from "./Menu/Menu";
 
-const Menu = lazy(() => import('./Menu/Menu'));
+// const Menu = lazy(() => import('./Menu/Menu'));
 const Home = lazy(() => import('./Home/Home'));
 const MovieDetails = lazy(() => import( './MovieDetails/MovieDetails'));
 const NotFound = lazy(() => import('./NotFound/NotFound'));
@@ -13,8 +14,8 @@ const Movies = lazy(() => import('./Movies/Movies'));
 export const App = () => {
   return (
     <div> 
+      <Menu />
       <Suspense fallback={<p>...Load Page</p>}>
-      <Menu/>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/movies" element={<Movies/>} />
