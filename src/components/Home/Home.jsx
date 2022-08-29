@@ -1,7 +1,5 @@
-// import Movies from "components/Movies/Movies";
 import { useState, useEffect } from "react";
 import { getMovies } from "api/api";
-// import { Link } from "react-router-dom";
 import MoviesList from "components/MoviesList/MoviesList";
 
 
@@ -23,10 +21,10 @@ const HomePage = () => {
         setLoading(false);
       }
     };
-    // if (itemsMovies.length === 0) {
+    if (items.length === 0) {
       fetchMovies();
-        // }
-       }, [])
+        }
+       }, [items])
 
   return (
         <div>
